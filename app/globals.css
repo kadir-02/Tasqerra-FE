@@ -26,55 +26,71 @@ body {
 } */
 
 :root {
-  /* Primary Brand */
-  --primary: #2563eb;
-  --primary-light: #3b82f6;
-  --primary-dark: #1e40af;
+  /* ==============================
+     🎨 BRAND (Tasqerra Identity)
+  ============================== */
 
-  /* Accent & Secondary */
-  --secondary: #10b981;
-  --secondary-light: #34d399;
-  --secondary-dark: #047857;
+  --primary: #4f46e5;          /* Indigo - productivity focus */
+  --primary-light: #6366f1;
+  --primary-dark: #3730a3;
 
-  /* Neutrals */
-  --text-primary: #111827;
-  --text-secondary: #4b5563;
-  --border-color: #e5e7eb;
-  --background: #f9fafb;
-  --surface: #ffffff;
+  --accent: #06b6d4;           /* Cyan accent for highlights */
+  --accent-light: #22d3ee;
+  --accent-dark: #0e7490;
 
-  /* Status Colors */
+  /* ==============================
+     🧱 NEUTRALS
+  ============================== */
+
+  --background: #f8fafc;       /* App background */
+  --surface: #ffffff;          /* Cards / panels */
+  --surface-hover: #f1f5f9;
+
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+
+  /* ==============================
+     📊 STATUS COLORS
+  ============================== */
+
   --success: #22c55e;
   --warning: #f59e0b;
   --error: #ef4444;
+  --info: #3b82f6;
 
-  /* Optional Glass/Shadow Colors */
-  --shadow-color: rgba(0, 0, 0, 0.1);
+  /* ==============================
+     ✨ EFFECTS
+  ============================== */
+
+  --shadow-color: rgba(15, 23, 42, 0.08);
   --glass-bg: rgba(255, 255, 255, 0.6);
 }
 
-/* DARK MODE */
 .dark {
-  --primary: #3b82f6;
-  --primary-light: #60a5fa;
-  --primary-dark: #1e3a8a;
+  --primary: #818cf8;
+  --primary-light: #a5b4fc;
+  --primary-dark: #4f46e5;
 
-  --secondary: #34d399;
-  --secondary-light: #6ee7b7;
-  --secondary-dark: #065f46;
+  --accent: #22d3ee;
+  --accent-light: #67e8f9;
+  --accent-dark: #0891b2;
 
-  --text-primary: #f3f4f6;
-  --text-secondary: #9ca3af;
-  --border-color: #374151;
-  --background: #111827;
-  --surface: #1f2937;
+  --background: #0f172a;
+  --surface: #1e293b;
+  --surface-hover: #334155;
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border-color: #334155;
 
   --success: #4ade80;
   --warning: #fbbf24;
   --error: #f87171;
+  --info: #60a5fa;
 
   --shadow-color: rgba(0, 0, 0, 0.4);
-  --glass-bg: rgba(31, 41, 55, 0.5);
+  --glass-bg: rgba(30, 41, 59, 0.5);
 }
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
