@@ -54,6 +54,9 @@ export default function LoginPage() {
     }
   };
   
+  const handleGoogleLogin = () => {
+    window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/google`;
+  }
 
   return (
     <div className="min-h-screen flex justify-center items-center 
@@ -93,6 +96,20 @@ export default function LoginPage() {
             success={false}
           />
         </div>
+         <button
+  type="button"
+  onClick={handleGoogleLogin}
+  className="w-full flex items-center justify-center gap-3
+             border border-gray-300 rounded-lg py-3 mt-4
+             hover:bg-gray-50 transition font-medium"
+>
+  <img
+    src="authentication/g-logo.png"
+    alt="google"
+    className="w-8 h-8"
+  />
+  Login with Google
+</button>
 
         <p className="text-sm text-center mt-6 text-(--text-secondary)">
           Don't have an account?

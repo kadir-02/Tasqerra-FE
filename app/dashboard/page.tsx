@@ -2,25 +2,51 @@
 
 import DashboardMain from "@/components/DashboardComponents/DashboardMain";
 import { RootState } from "@/redux/store";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getApi } from "@/apis/BoardApis";
+import { setUser } from "@/redux/slices/userSlice";
 
 const Page = () => {
   const router = useRouter();
   const token = useSelector((state: RootState) => state.user?.token);
+ const searchParams = useSearchParams();
+  const dispatch = useDispatch();
 
   const [boards, setBoards] = useState<any[]>([]);
+ const [checkingAuth, setCheckingAuth] = useState(true);
 
-  // 🔒 Protect Route
-  useEffect(() => {
-    if (!token) {
-      toast.error("Please login to access the dashboard");
-      router.push("/login");
-    }
-  }, [token, router]);
+useEffect(() => {
+  const urlToken = searchParams.get("token");
+  const name = searchParams.get("name");
+  const email = searchParams.get("email");
+
+  if (urlToken) {
+    dispatch(
+      setUser({
+        token: urlToken,
+        user: {
+          name: name || "",
+          email: email || "",
+        },
+      })
+    );
+
+    toast.success("Login successful!");
+
+    router.replace("/dashboard");
+    setCheckingAuth(false);
+    return;
+  }
+
+  if (!token) {
+    router.push("/login");
+  } else {
+    setCheckingAuth(false);
+  }
+}, [token, searchParams, dispatch, router]);
 
   // 📌 Fetch Boards
   const fetchBoards = async () => {
